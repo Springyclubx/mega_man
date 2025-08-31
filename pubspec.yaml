@@ -1,0 +1,49 @@
+name: harry_potter
+description: "A new Flutter project."
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  http: ^1.4.0
+  intl:
+  provider: ^6.1.5
+  animations: ^2.0.11
+  shared_preferences: ^2.5.3
+  logger: ^2.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+  lints: ^5.1.1
+
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/gryffindor.png
+    - assets/hufflepuff.png
+    - assets/ravenclaw.png
+    - assets/slytherin.png
+
+  fonts:
+    - family: HarryPotter
+      fonts:
+        - asset: assets/fonts/harryp.ttf
+
+flutter_intl:
+  enabled: true
+

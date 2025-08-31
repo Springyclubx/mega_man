@@ -1,0 +1,21 @@
+{
+  "unknownError": "Erro inesperado, tente novamente mais tarde",
+  "characters": "Personagens",
+  "houses": "Casas",
+  "house": "Casa",
+  "wand": "Varinha",
+  "species": "Especie",
+  "details": "Detalhes",
+  "ancestry": "Ascendência",
+  "hairColour": "Cor do cabelo",
+  "eyeColour": "Cor dos olhos",
+  "status": "Status",
+  "patronus":  "Patronus",
+  "died": "Morreu",
+  "alive": "Vivo",
+  "birthDate": "Data de nascimento",
+  "spells": "Feiticos",
+  "search": "Pesquisar",
+
+  "@_intl": {}
+}

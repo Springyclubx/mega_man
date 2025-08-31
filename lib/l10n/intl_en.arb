@@ -1,0 +1,21 @@
+{
+  "unknownError": "Unexpected error, please try again later",
+  "characters": "Characters",
+  "houses": "Houses",
+  "house": "House",
+  "wand": "Wand",
+  "species": "Species",
+  "details": "Details",
+  "ancestry": "Ancestry",
+  "hairColour":  "Hair color",
+  "eyeColour": "Eye color",
+  "status": "Status",
+  "patronus":  "Patronus",
+  "died": "Died",
+  "alive": "Alive",
+  "birthDate": "Birth date",
+  "spells": "Spells",
+  "search": "Search",
+
+  "@_intl": {}
+}
