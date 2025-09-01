@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+
+import '../../infrastructure/presentation/util/date_time_format.dart';
+
 class Wizards {
   Wizards({
     required this.id,
@@ -16,22 +20,66 @@ class Wizards {
   final DateTime? birthDate;
   final String? image;
   final House? house;
+
+  String get birthDateFormat =>
+      tryFormatDate(DateFormatNamed.dateFormat, birthDate) ?? '';
+
+  static Wizards fromJson(Map<String, dynamic> json, House? house) {
+    return Wizards(
+      id: json['id'],
+      name: json['name'],
+      specie: json['species'],
+      gender: json['gender'] == 'male' ? Gender.male : Gender.female,
+      birthDate: tryParseDate('dd-MM-yyyy', json['dateOfBirth']),
+      image: json['image'],
+      house: House.fromValue(json['house']),
+    );
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+    'id': id,
+    'name': name,
+    'species': specie,
+    'gender': gender.name,
+  };
 }
 
-enum Gender { male, female }
+enum Gender {
+  male(Icons.male),
+  female(Icons.female);
 
-enum House { gryffindor, ravenclaw, slytherin, hufflepuff }
+  const Gender(this.icon);
 
-class WizardsDetails {
+  final IconData icon;
+}
+
+enum House {
+  gryffindor('gryffindor'),
+  ravenclaw('ravenclaw'),
+  slytherin('slytherin'),
+  hufflepuff('hufflepuff');
+
+  final String valueApi;
+
+  const House(this.valueApi);
+
+  static House fromValue(String? value) {
+    return House.values.firstWhere(
+      (house) => house.valueApi == value?.toLowerCase(),
+    );
+  }
+}
+
+class WizardsDetails extends Wizards {
   WizardsDetails({
-    required this.id,
-    required this.name,
-    required this.specie,
-    required this.gender,
+    required super.id,
+    required super.name,
+    required super.specie,
+    required super.gender,
+    super.birthDate,
+    super.image,
+    super.house,
     required this.alternateNames,
-    this.birthDate,
-    this.image,
-    this.house,
     this.wand,
     this.ancestry,
     this.hairColour,
@@ -40,13 +88,6 @@ class WizardsDetails {
     this.alive,
   });
 
-  final String id;
-  final String name;
-  final String specie;
-  final Gender gender;
-  final DateTime? birthDate;
-  final String? image;
-  final House? house;
   final List<String> alternateNames;
   final Wand? wand;
   final String? ancestry;

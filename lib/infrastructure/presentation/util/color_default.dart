@@ -13,7 +13,13 @@ class ColorDefault {
       ? cardColorDark.withValues(alpha: 0.9)
       : cardColorLight.withValues(alpha: 0.9);
 
+
+  Color? get cardColorSelected => context.isDarkTheme
+      ? oppositeNewColor2.withValues(alpha: 0.9)
+      : newColor2.withValues(alpha: 0.9);
+
   Color get textColor => context.isDarkTheme ? textColorDark : textColorLight;
+  Color get textColorSelected => context.isDarkTheme ? textColorLight :textColorDark ;
 
   Color get colorTest => context.isDarkTheme ? oppositeNewColor2 : newColor2;
 

@@ -1,7 +1,7 @@
 part of '../houses_screen.dart';
 
 class _HousesContainer extends StatelessWidget {
-  const _HousesContainer({super.key, required this.house});
+  const _HousesContainer({required this.house});
 
   final House house;
 

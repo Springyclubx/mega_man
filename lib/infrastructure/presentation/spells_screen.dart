@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:harry_potter/extension/context.dart';
 import 'package:harry_potter/infrastructure/presentation/states/spells_state.dart';
+import 'package:harry_potter/infrastructure/presentation/util/widget/scaffold_default.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/entities/spell.dart';
-import '../../generated/l10n.dart';
 import '../../main.dart';
 import 'application.dart';
 
@@ -17,17 +17,9 @@ class SpellsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => SpellsState(applicationUseCase),
-      child: Consumer<SpellsState>(
-        builder: (_, state, __) {
-          return Scaffold(
-            backgroundColor: colorDefault.backgraundColor,
-            appBar: AppBar(
-              title: Text(context.s.spells, style: TextStyle(fontSize: 30)),
-              centerTitle: true,
-            ),
-            body: Column(children: [Search(), SpellsListView()]),
-          );
-        },
+      child: ScaffoldDefault(
+        title: context.s.spells,
+        body: Column(children: [_Search(), SpellsListView()]),
       ),
     );
   }
@@ -41,7 +33,11 @@ class SpellsListView extends StatelessWidget {
     final state = Provider.of<SpellsState>(context);
 
     if (state.isLoading) {
-      return Expanded(child: Center(child: CircularProgressIndicator()));
+      return Expanded(
+        child: Center(
+          child: CircularProgressIndicator(color: colorDefault.textColor),
+        ),
+      );
     }
 
     return Expanded(
@@ -107,8 +103,8 @@ class SpellItem extends StatelessWidget {
   }
 }
 
-class Search extends StatelessWidget {
-  const Search({super.key});
+class _Search extends StatelessWidget {
+  const _Search();
 
   @override
   Widget build(BuildContext context) {

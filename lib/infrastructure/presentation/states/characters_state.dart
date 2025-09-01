@@ -11,61 +11,37 @@ class CharactersState extends ChangeNotifier {
   final House? house;
 
   final list = <Wizards>[];
-  bool isLoading = true;
-  House? selected;
+  bool _isLoading = true;
+  House? _selected;
+
+  bool get isLoading => _isLoading;
+  House? get selected => _selected;
 
   void _init() async {
-    try {
-      if (house == null) {
-        list
-          ..clear()
-          ..addAll(await _useCase.getAllWizards());
-      } else {
-        list
-          ..clear()
-          ..addAll(await _useCase.getAllWizardsByHouse(house!));
-      }
-    } on Exception {
-      list.clear();
-    }
+    await getAllWizards(house);
 
-    isLoading = false;
+    _isLoading = false;
     notifyListeners();
   }
 
-  void filter(House? house) async {
-    isLoading = true;
+  Future<void> getAllWizards(House? house) async {
+    try {
+      list
+        ..clear()
+        ..addAll(await _useCase.getAllWizards(house));
+    } on Exception {
+      list.clear();
+    }
+  }
+
+  Future<void> filter(House? house) async {
+    _isLoading = true;
+    _selected = house;
     notifyListeners();
 
-    if (house == null) {
-      selected = null;
-      list
-        ..clear()
-        ..addAll(await _useCase.getAllWizards());
+    getAllWizards(house);
 
-      isLoading = false;
-      notifyListeners();
-      return;
-    }
-
-    if (house == selected) {
-      selected = null;
-
-      list
-        ..clear()
-        ..addAll(await _useCase.getAllWizards());
-
-      isLoading = false;
-      notifyListeners();
-      return;
-    }
-
-    selected = house;
-    list
-      ..clear()
-      ..addAll(await _useCase.getAllWizardsByHouse(house));
-
-    isLoading = false;
+    _isLoading = false;
     notifyListeners();
   }
 }

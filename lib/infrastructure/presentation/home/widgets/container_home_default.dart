@@ -13,10 +13,6 @@ class _ContainerHomeDefault extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final defaultFontFamily = Theme.of(context).textTheme.bodyLarge?.fontFamily;
-
-    print('asdasd!');
-    print(defaultFontFamily);
     return InkWell(
       borderRadius: BorderRadiusDefault.borderRadiusDefault,
       onTap: () {

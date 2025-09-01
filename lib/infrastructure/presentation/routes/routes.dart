@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../domain/entities/wizards.dart';
-import '../characters.dart';
+import '../characters/characters_screen.dart';
 import '../details_screen.dart';
 import '../home/home_screen.dart';
 import '../houses/houses_screen.dart';
-import '../spells.dart';
+import '../spells_screen.dart';
 
 class NamedRoutes {
   static const String home = 'home';
@@ -17,7 +17,7 @@ class NamedRoutes {
 
 class MainRoute {
   static final routes = {
-    NamedRoutes.home: (_) => const HomePage(),
+    NamedRoutes.home: (_) => const HomePageScreen(),
     NamedRoutes.characters: (context) {
       final args = ModalRoute.of(context)?.settings.arguments as House?;
 

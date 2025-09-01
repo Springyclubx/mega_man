@@ -78,17 +78,7 @@ class _ApplicationRepository implements ApplicationRepository {
       final list = <Wizards>[];
 
       for (final item in response) {
-        list.add(
-          Wizards(
-            id: item['id'],
-            name: item['name'],
-            specie: item['species'],
-            gender: item['gender'] == 'male' ? Gender.male : Gender.female,
-            birthDate: tryParseDate('dd-MM-yyyy', item['dateOfBirth']),
-            image: item['image'],
-            house: house,
-          ),
-        );
+        list.add(Wizards.fromJson(item,house));
       }
 
       return list;

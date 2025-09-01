@@ -3,7 +3,7 @@ import '../entities/spell.dart';
 
 ///Deal with business rules of user information
 abstract class ApplicationUseCase {
-  Future<List<Wizards>> getAllWizards();
+  Future<List<Wizards>> getAllWizards(House? house);
 
   Future<List<Wizards>> getAllWizardsByHouse(House house);
 

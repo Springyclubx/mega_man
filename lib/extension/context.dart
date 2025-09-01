@@ -22,7 +22,6 @@ extension BuildContextExtension on BuildContext {
   }
 
   bool get isDarkTheme {
-
     return Theme.brightnessOf(this) == Brightness.dark;
   }
 }

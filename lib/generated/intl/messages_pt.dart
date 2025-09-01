@@ -7,7 +7,8 @@
 // ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
-// ignore_for_file:unused_import, file_names
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -20,23 +21,24 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function> {
-    "alive" : MessageLookupByLibrary.simpleMessage("Vivo"),
-    "ancestry" : MessageLookupByLibrary.simpleMessage("Ascendência"),
-    "birthDate" : MessageLookupByLibrary.simpleMessage("Data de nascimento"),
-    "characters" : MessageLookupByLibrary.simpleMessage("Personagens"),
-    "details" : MessageLookupByLibrary.simpleMessage("Detalhes"),
-    "died" : MessageLookupByLibrary.simpleMessage("Morreu"),
-    "eyeColour" : MessageLookupByLibrary.simpleMessage("Cor dos olhos"),
-    "hairColour" : MessageLookupByLibrary.simpleMessage("Cor do cabelo"),
-    "house" : MessageLookupByLibrary.simpleMessage("Casa"),
-    "houses" : MessageLookupByLibrary.simpleMessage("Casas"),
-    "patronus" : MessageLookupByLibrary.simpleMessage("Patronus"),
-    "search" : MessageLookupByLibrary.simpleMessage("Pesquisar"),
-    "species" : MessageLookupByLibrary.simpleMessage("Especie"),
-    "spells" : MessageLookupByLibrary.simpleMessage("Feiticos"),
-    "status" : MessageLookupByLibrary.simpleMessage("Status"),
-    "unknownError" : MessageLookupByLibrary.simpleMessage("Erro inesperado, tente novamente mais tarde"),
-    "wand" : MessageLookupByLibrary.simpleMessage("Varinha")
-  };
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alive": MessageLookupByLibrary.simpleMessage("Vivo"),
+        "ancestry": MessageLookupByLibrary.simpleMessage("Ascendência"),
+        "birthDate": MessageLookupByLibrary.simpleMessage("Data de nascimento"),
+        "characters": MessageLookupByLibrary.simpleMessage("Personagens"),
+        "details": MessageLookupByLibrary.simpleMessage("Detalhes"),
+        "died": MessageLookupByLibrary.simpleMessage("Morreu"),
+        "eyeColour": MessageLookupByLibrary.simpleMessage("Cor dos olhos"),
+        "hairColour": MessageLookupByLibrary.simpleMessage("Cor do cabelo"),
+        "house": MessageLookupByLibrary.simpleMessage("Casa"),
+        "houses": MessageLookupByLibrary.simpleMessage("Casas"),
+        "patronus": MessageLookupByLibrary.simpleMessage("Patronus"),
+        "search": MessageLookupByLibrary.simpleMessage("Pesquisar"),
+        "species": MessageLookupByLibrary.simpleMessage("Especie"),
+        "spells": MessageLookupByLibrary.simpleMessage("Feiticos"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "unknownError": MessageLookupByLibrary.simpleMessage(
+            "Erro inesperado, tente novamente mais tarde"),
+        "wand": MessageLookupByLibrary.simpleMessage("Varinha")
+      };
 }

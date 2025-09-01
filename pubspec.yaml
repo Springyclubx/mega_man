@@ -20,6 +20,7 @@ dependencies:
   animations: ^2.0.11
   shared_preferences: ^2.5.3
   logger: ^2.5.0
+  shimmer_animation: ^2.2.2
 
 dev_dependencies:
   flutter_test:

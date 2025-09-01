@@ -11,12 +11,18 @@ class DetailsState extends ChangeNotifier {
   final String _id;
 
   late WizardsDetails wizard;
-  bool isLoading = true;
+  bool _isLoading = true;
+
+  bool get isLoading => _isLoading;
 
   void _init() async {
-    wizard = await _useCase.getDetailsWizard(_id);
+    try {
+      wizard = await _useCase.getDetailsWizard(_id);
 
-    isLoading = false;
-    notifyListeners();
+      _isLoading = false;
+      notifyListeners();
+    } on Exception {
+      return;
+    }
   }
 }

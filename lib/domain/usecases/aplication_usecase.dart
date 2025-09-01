@@ -15,7 +15,13 @@ class _ApplicationInterface extends ApplicationUseCase {
   final ApplicationRepository _repository;
 
   @override
-  Future<List<Wizards>> getAllWizards() => _repository.getAllWizards();
+  Future<List<Wizards>> getAllWizards(House? house) async {
+    if (house == null) {
+      return _repository.getAllWizards();
+    }
+
+    return _repository.getAllWizardsByHouse(house);
+  }
 
   @override
   Future<List<Wizards>> getAllWizardsByHouse(House house) =>

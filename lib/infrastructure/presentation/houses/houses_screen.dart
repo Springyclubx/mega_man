@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:harry_potter/extension/context.dart';
 import 'package:harry_potter/infrastructure/presentation/routes/routes.dart';
 import 'package:harry_potter/infrastructure/presentation/util/border.dart';
-import 'package:harry_potter/infrastructure/presentation/util/widget/scafold_default.dart';
+import 'package:harry_potter/infrastructure/presentation/util/widget/scaffold_default.dart';
 
 import '../../../domain/entities/wizards.dart';
-import '../../../generated/l10n.dart';
 import '../application.dart';
 
 part 'widgets/houses_container_default.dart';
@@ -15,7 +14,7 @@ class HousesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScafoldDefault(
+    return ScaffoldDefault(
       title: context.s.houses,
       body: Column(
         spacing: 20,

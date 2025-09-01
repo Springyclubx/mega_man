@@ -59,7 +59,6 @@ class SpellsState extends ChangeNotifier {
   }
 }
 
-/// remove Diacritics
 String removeDiacritics(String str) {
   var withDia =
       'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';

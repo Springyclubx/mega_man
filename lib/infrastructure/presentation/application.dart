@@ -38,7 +38,9 @@ class Application extends StatelessWidget {
       theme: ThemeData(
         pageTransitionsTheme: PageTransitionsTheme(builders: builders),
         fontFamily: 'HarryPotter',
+        iconTheme: IconThemeData(color: ColorDefault.textColorLight),
         colorScheme: ColorScheme.fromSeed(
+          primary: ColorDefault.textColorLight,
           seedColor: Colors.deepPurple,
           brightness: Brightness.light,
         ),
@@ -46,7 +48,9 @@ class Application extends StatelessWidget {
       darkTheme: ThemeData(
         pageTransitionsTheme: PageTransitionsTheme(builders: builders),
         fontFamily: 'HarryPotter',
+        iconTheme: IconThemeData(color: ColorDefault.textColorDark),
         colorScheme: ColorScheme.fromSeed(
+          primary: ColorDefault.textColorDark,
           seedColor: Colors.deepPurple,
           brightness: Brightness.dark,
         ),
@@ -59,7 +63,7 @@ class Application extends StatelessWidget {
         S.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      home: const HomePage(),
+      home: const HomePageScreen(),
     );
   }
 

@@ -3,17 +3,17 @@ import 'package:harry_potter/extension/context.dart';
 import 'package:harry_potter/infrastructure/presentation/routes/routes.dart';
 import 'package:harry_potter/infrastructure/presentation/util/border.dart';
 import '../application.dart';
-import '../util/widget/scafold_default.dart';
+import '../util/widget/scaffold_default.dart';
 
 part 'widgets/container_home_default.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePageScreen extends StatelessWidget {
+  const HomePageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    return ScafoldDefault(
+    return ScaffoldDefault(
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
